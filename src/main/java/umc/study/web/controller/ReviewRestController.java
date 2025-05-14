@@ -18,7 +18,7 @@ public class ReviewRestController {
 
     @PostMapping("/{storeId}/reviews")
     public ResponseEntity<ReviewResponseDTO.CreateResultDto> createReview(
-            @ExistStore @PathVariable Long storeId,
+            @ExistStore @PathVariable("storeId") Long storeId,
             @Valid @RequestBody ReviewRequestDTO.CreateDto request
     ) {
         ReviewResponseDTO.CreateResultDto response = reviewCommandService.createReview(storeId, request);
