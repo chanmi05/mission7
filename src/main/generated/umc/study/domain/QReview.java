@@ -35,7 +35,7 @@ public class QReview extends EntityPathBase<Review> {
 
     public final ListPath<Review_Image, QReview_Image> review_imageList = this.<Review_Image, QReview_Image>createList("review_imageList", Review_Image.class, QReview_Image.class, PathInits.DIRECT2);
 
-    public final NumberPath<Double> score = createNumber("score", Double.class);
+    public final NumberPath<Float> score = createNumber("score", Float.class);
 
     public final QStore store;
 

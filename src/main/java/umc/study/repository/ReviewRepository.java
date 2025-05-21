@@ -1,8 +1,13 @@
 package umc.study.repository;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.repository.JpaRepository;
+import umc.study.domain.Member;
 import umc.study.domain.Review;
+import umc.study.domain.Store;
 
 public interface ReviewRepository extends JpaRepository<Review, Long> {
-    // 필요 시 커스텀 쿼리도 여기에 추가 가능
+    Page<Review> findAllByStore(Store store, PageRequest pageRequest);
+    Page<Review> findAllByMember(Member member, PageRequest pageRequest);
 }
