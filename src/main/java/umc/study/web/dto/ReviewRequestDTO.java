@@ -16,7 +16,7 @@ public class ReviewRequestDTO {
         @NotNull(message = "점수는 필수입니다.")
         @DecimalMin(value = "0.0", inclusive = true)
         @DecimalMax(value = "5.0", inclusive = true)
-        private Double score;
+        private Float score;
     }
 }
 

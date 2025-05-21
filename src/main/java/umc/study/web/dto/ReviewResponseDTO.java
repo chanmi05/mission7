@@ -14,7 +14,7 @@ public class ReviewResponseDTO {
         private Long storeId;
         private Long memberId;
         private String body;
-        private Double score;
+        private Float score;
         private LocalDateTime createdAt;
     }
 }
