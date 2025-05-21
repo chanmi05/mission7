@@ -2,8 +2,12 @@ package umc.study.web.dto;
 
 import jakarta.validation.constraints.*;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.time.LocalDateTime;
+import java.util.List;
 
 // 요청 DTO
 public class ReviewRequestDTO {

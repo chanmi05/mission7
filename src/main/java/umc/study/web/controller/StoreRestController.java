@@ -24,7 +24,7 @@ import umc.study.web.dto.StoreResponseDTO;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/regions")
+@RequestMapping("/stores")
 public class StoreRestController {
 
     private final StoreCommandService storeCommandService;
