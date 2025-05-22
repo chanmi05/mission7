@@ -1,17 +1,20 @@
 package umc.study.web.dto;
 
 import jakarta.validation.constraints.*;
-
 import lombok.Getter;
 import lombok.Setter;
 
-// 요청 DTO
-public class ReviewRequestDTO {
+public class StoreRequestDTO {
+
     @Getter
     @Setter
-    public static class CreateDto {
-        @NotBlank(message = "리뷰 내용은 필수입니다.")
-        private String body;
+    public static class CreateStoreDto {
+
+        @NotBlank(message = "가게 이름은 필수입니다.")
+        private String name;
+
+        @NotBlank(message = "가게 주소는 필수입니다.")
+        private String address;
 
         @NotNull(message = "점수는 필수입니다.")
         @DecimalMin(value = "0.0", inclusive = true)
@@ -19,4 +22,3 @@ public class ReviewRequestDTO {
         private Float score;
     }
 }
-

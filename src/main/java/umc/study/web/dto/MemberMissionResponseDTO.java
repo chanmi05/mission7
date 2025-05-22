@@ -5,17 +5,15 @@ import lombok.Getter;
 
 import java.time.LocalDateTime;
 
-// 응답 DTO
-public class ReviewResponseDTO {
+public class MemberMissionResponseDTO {
+
     @Getter
     @Builder
-    public static class CreateResultDto {
-        private Long reviewId;
-        private Long storeId;
+    public static class CreateMissionResultDto {
+        private Long memberMissionId;
         private Long memberId;
-        private String body;
-        private Float score;
+        private Long missionId;
+        private String status;
         private LocalDateTime createdAt;
     }
 }
-
