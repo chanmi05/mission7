@@ -60,4 +60,22 @@ public class MemberMissionRestController {
                 memberMissionQueryService.getChallengingMissions(member, page)
         );
     }
+
+    @PatchMapping("/my-missions/{memberMissionId}")
+    @Operation(summary = "진행 중인 미션 완료 처리 API", description = "진행 중인 미션의 상태를 COMPLETE로 변경합니다.")
+    @Parameters({
+            @Parameter(name = "memberMissionId", description = "MemberMission ID", required = true)
+    })
+    @ApiResponses({
+            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "COMMON200", description = "성공"),
+            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "MISSION4001", description = "해당 미션이 존재하지 않음"),
+            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "MISSION4002", description = "이미 완료된 미션")
+    })
+    public ApiResponse<MemberMissionResponseDTO.CompleteMissionResultDTO> completeMission(
+            @PathVariable Long memberMissionId
+    ) {
+        return ApiResponse.onSuccess(
+                memberMissionCommandService.completeMission(memberMissionId)
+        );
+    }
 }

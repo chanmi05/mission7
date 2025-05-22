@@ -5,5 +5,6 @@ import umc.study.web.dto.MemberMissionResponseDTO;
 
 public interface MemberMissionCommandService {
     MemberMissionResponseDTO.CreateMissionResultDto challengeMission(MemberMissionRequestDTO.CreateMissionDto request);
+    MemberMissionResponseDTO.CompleteMissionResultDTO completeMission(Long memberMissionId);
 }
 

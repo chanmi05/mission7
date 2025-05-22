@@ -4,6 +4,7 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import umc.study.apiPayload.code.status.ErrorStatus;
+import umc.study.apiPayload.exception.handler.GeneralException;
 import umc.study.apiPayload.exception.handler.MissionHandler;
 import umc.study.converter.MemberMissionConverter;
 import umc.study.domain.Member;
@@ -45,5 +46,21 @@ public class MemberMissionCommandServiceImpl implements MemberMissionCommandServ
         MemberMission saved = memberMissionRepository.save(memberMission);
         return MemberMissionConverter.toCreateResultDTO(saved);
     }
+
+    @Override
+    @Transactional
+    public MemberMissionResponseDTO.CompleteMissionResultDTO completeMission(Long memberMissionId) {
+        MemberMission memberMission = memberMissionRepository.findById(memberMissionId)
+                .orElseThrow(() -> new GeneralException(ErrorStatus.MEMBER_MISSION_NOT_FOUND));
+
+        if (memberMission.getStatus() == MissionStatus.COMPLETE) {
+            throw new GeneralException(ErrorStatus.MEMBER_MISSION_ALREADY_COMPLETED);
+        }
+
+        memberMission.setStatus(MissionStatus.COMPLETE);
+
+        return MemberMissionConverter.toCompleteMissionResultDTO(memberMission);
+    }
+
 }
 

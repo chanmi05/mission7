@@ -39,4 +39,13 @@ public class MemberMissionResponseDTO {
         private boolean isFirst;
         boolean isLast;
     }
+
+    @Getter
+    @Builder
+    public static class CompleteMissionResultDTO {
+        private Long memberMissionId;
+        private String status;
+        private LocalDateTime updatedAt;
+    }
+
 }
