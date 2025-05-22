@@ -33,7 +33,7 @@ public class QMemberMission extends EntityPathBase<MemberMission> {
 
     public final umc.study.domain.QMission mission;
 
-    public final EnumPath<MissionStatus> status = createEnum("status", MissionStatus.class);
+    public final EnumPath<umc.study.domain.enums.MissionStatus> status = createEnum("status", umc.study.domain.enums.MissionStatus.class);
 
     //inherited
     public final DateTimePath<java.time.LocalDateTime> updatedAt = _super.updatedAt;
