@@ -5,6 +5,7 @@ import lombok.*;
 import umc.study.domain.Member;
 import umc.study.domain.Mission;
 import umc.study.domain.common.BaseEntity;
+import umc.study.domain.enums.MissionStatus;
 
 @Entity
 @Getter
@@ -28,4 +29,9 @@ public class MemberMission extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "mission_id")
     private Mission mission;
+
+    // status 변경하기 위한 setter
+    public void setStatus(MissionStatus status) {
+        this.status = status;
+    }
 }
