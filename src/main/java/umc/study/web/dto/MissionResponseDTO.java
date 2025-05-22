@@ -5,6 +5,7 @@ import lombok.Getter;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class MissionResponseDTO {
 
@@ -18,4 +19,24 @@ public class MissionResponseDTO {
         private LocalDate deadline;
         private LocalDateTime createdAt;
     }
+
+    @Getter
+    @Builder
+    public static class MissionPreviewDTO {
+        private Long missionId;
+        private String missionSpec;
+        private LocalDate deadline;
+    }
+
+    @Getter
+    @Builder
+    public static class MissionPreviewListDTO {
+        private List<MissionPreviewDTO> missions;
+        private int listSize;
+        private int totalPages;
+        private long totalElements;
+        private boolean isFirst;
+        private boolean isLast;
+    }
+
 }
