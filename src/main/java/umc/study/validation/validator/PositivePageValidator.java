@@ -9,8 +9,8 @@ import umc.study.validation.annotation.PositivePage;
 public class PositivePageValidator implements ConstraintValidator<PositivePage, Integer> {
 
     @Override
-    public boolean isValid(Integer value, ConstraintValidatorContext context) {
+    public boolean isValid(Integer page, ConstraintValidatorContext context) {
         // null은 허용 (nullable param), 음수는 불허
-        return value == null || value >= 0;
+        return page == null || page >= 0;
     }
 }
